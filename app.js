@@ -34,3 +34,19 @@ function atualizarLista() {
         lista.appendChild(item);
     }
 }
+
+function sortearAmigo() {
+    // Validar que há amigos disponíveis
+    if (amigos.length === 0) {
+        alert('Adicione pelo menos um amigo antes de sortear.');
+        return;
+    }
+    // Gerar um índice aleatório usando parseInt
+    let indiceAleatorio = parseInt(Math.random() * amigos.length);
+
+    // Obter o nome sorteado
+    let nomeSorteado = amigos[indiceAleatorio];
+
+    // Mostrar o resultado na lista de resultado
+    document.getElementById("resultado").innerHTML = `<li>${nomeSorteado}</li>`;
+}

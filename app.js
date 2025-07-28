@@ -1,22 +1,36 @@
-//Array para armazenar os nomes
 let amigos = [];
 
 function adicionarAmigo(){
-    //Pega o valor do input
-    let nome = document.getElementById("nome").value;
-    
-    //Verifica se o nome não está vazio
+    // Captura o valor do campo de entrada
+    let nome = document.getElementById("amigo").value;
+
+    // Valida a entrada
     if(nome.trim() === ""){
-        alert("Digite um nome válido!");
-        return; // Sai da função se o nome for vazio
+        alert("Por favor, insira um nome.");
+        return;
     }
-    
-    //Adiciona o nome ao array
+
+    // Atualiza o array de amigos
     amigos.push(nome);
 
-    //Limpa o input
-    document.getElementById("nome").value = "";
+    // Limpa o campo de entrada
+    document.getElementById("amigo").value = "";
 
-    //Atualiza a lista de amigos
+    // Atualiza a lista de amigos na tela
     atualizarLista();
+}
+
+function atualizarLista() {
+    // Obter o elemento da lista
+    let lista = document.getElementById("listaAmigos");
+
+    // Limpar a lista existente
+    lista.innerHTML = "";
+
+    // Percorrer o array e adicionar cada amigo como <li>
+    for(let i = 0; i < amigos.length; i++) {
+        let item = document.createElement("li");
+        item.textContent = amigos[i];
+        lista.appendChild(item);
+    }
 }

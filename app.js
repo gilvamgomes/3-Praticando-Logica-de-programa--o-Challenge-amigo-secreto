@@ -10,6 +10,12 @@ function adicionarAmigo(){
         return;
     }
 
+    //Verifica se o nome já existe na lista
+    if(amigos.includes(nome)){
+        alert('Este amigo já foi adicionado.');
+        return;    
+    }
+
     // Atualiza o array de amigos
     amigos.push(nome);
 
